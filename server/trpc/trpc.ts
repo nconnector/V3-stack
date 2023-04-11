@@ -10,23 +10,24 @@
 import { TRPCError, initTRPC } from "@trpc/server";
 import { Context } from "~/server/trpc/context";
 
-const t = initTRPC.context<Context>().create();
+const t = initTRPC.context<Context>().create({
+  // transformer: superjson,
+});
 
 /**
- * Auth middleware
- */
-const isAuthed = t.middleware(({ next, ctx }) => {
-  if (!ctx.user?.isAdmin) {
+ * Authentication middleware
+ **/
+const authMiddleware = t.middleware(({ ctx, next }) => {
+  if (!ctx.session || !ctx.session.user)
     throw new TRPCError({ code: "UNAUTHORIZED" });
-  }
   return next({
     ctx: {
-      user: ctx.user,
+      session: { ...ctx.session, user: ctx.session.user },
     },
   });
 });
 
 export const publicProcedure = t.procedure;
-export const protectedProcedure = t.procedure.use(isAuthed);
+export const protectedProcedure = t.procedure.use(authMiddleware);
 export const router = t.router;
 export const middleware = t.middleware;

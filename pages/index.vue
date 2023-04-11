@@ -1,20 +1,59 @@
+<template>
+  <div class="auth">
+    <button @click="() => signIn()">Log in</button>
+    <button @click="() => signOut()">Log out</button>
+    <div>Status: {{ status }}</div>
+    <div>Data: {{ data }}</div>
+    <div>lastRefreshedAt: {{ lastRefreshedAt }}</div>
+  </div>
+  <div class="test-handles">
+    <div>
+      <div>{{ hello?.greeting || "unavailable" }}</div>
+      <button @click="() => increment()">increment public</button>
+    </div>
+    <div>
+      <div>{{ helloAuth?.greeting || "unavailable" }}</div>
+      <button @click="() => incrementAuth()">increment auth-protected</button>
+    </div>
+  </div>
+</template>
+
 <script setup lang="ts">
 const { $client } = useNuxtApp();
+const { status, data, signIn, signOut, lastRefreshedAt } = useAuth();
 
 const count = ref(0);
 const { data: hello } = await useAsyncData(
-  () => $client.hello.query({ text: `greeting #${count.value}` }),
+  () =>
+    $client.helloWorld.hello.query({
+      text: `#${count.value}`,
+    }),
   { watch: [count] }
 );
-
 const increment = async () => {
   count.value++;
 };
+const countAuth = ref(0);
+const { data: helloAuth } = await useAsyncData(
+  () =>
+    $client.helloWorld.helloAuthenticated.query({
+      text: `#${countAuth.value}`,
+    }),
+  { watch: [countAuth] }
+);
+const incrementAuth = async () => {
+  countAuth.value++;
+};
 </script>
-
-<template>
-  <div>
-    <p>{{ hello?.greeting }}</p>
-    <button @click="() => increment()">increment Q</button>
-  </div>
-</template>
+<style scoped>
+.auth,
+.test-handles {
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+</style>

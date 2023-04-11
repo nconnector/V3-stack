@@ -1,6 +1,7 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -9,6 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@sidebase/nuxt-auth": "^0.5.0-rc.0",
+    "@types/node": "^18.15.11",
     "nuxt": "^3.3.3"
   },
   "dependencies": {
