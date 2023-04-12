@@ -1,4 +1,4 @@
-# Vue + tRPC Fullstack Scaffolding
+# Nuxt3 + tRPC Fullstack Scaffolding
 
 Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt.
 
@@ -63,11 +63,6 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 ├── store
 │   └── index.ts                      <-- main pinia store
 ```
-
-## Deployment:
-
-- TRPC implemented via nuxt-trpc
-- Nuxt builds /server and /client https://nuxt.com/docs/getting-started/deployment
 
 ## Development Server
 
