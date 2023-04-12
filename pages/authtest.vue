@@ -1,12 +1,16 @@
 <template>
   <p v-if="data">
     {{ data.data }}
-    <button @click="navigateTo('/')">Go back</button>
+    <button @click="navigateTo('/')">
+      Go back
+    </button>
   </p>
   <NuxtErrorBoundary>
     <div v-if="error">
       {{ error.message }}
-      <button @click="clearError({ redirect: '/' })">Go back</button>
+      <button @click="clearError({ redirect: '/' })">
+        Go back
+      </button>
     </div>
   </NuxtErrorBoundary>
 </template>

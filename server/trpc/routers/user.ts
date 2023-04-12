@@ -1,4 +1,4 @@
-import { z } from "zod";
+// import { z } from "zod";
 import { TRPCError } from "@trpc/server";
 import { protectedProcedure, router } from "../trpc";
 
@@ -8,18 +8,18 @@ export const userRouter = router({
     if (!users) {
       return {
         type: "error",
-        error: new TRPCError({ message: "no users", code: "NOT_FOUND" }),
+        error: new TRPCError({ message: "no users", code: "NOT_FOUND" })
       } as const;
     }
     return {
       type: "ok",
-      data: users,
+      data: users
     } as const;
   }),
   isAuthed: protectedProcedure.query(() => {
     return {
       type: "ok",
-      data: "you are authed!",
+      data: "you are authed!"
     } as const;
-  }),
+  })
 });

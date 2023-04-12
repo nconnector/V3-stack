@@ -1,10 +1,10 @@
-import { envConfig } from "~/envConfig";
-import { NuxtAuthHandler } from "#auth";
 
 import GithubProvider from "next-auth/providers/github";
 import Auth0Provider from "next-auth/providers/auth0";
 
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { NuxtAuthHandler } from "#auth";
+import { envConfig } from "~/envConfig";
 import { prisma } from "~/server/prisma";
 
 export default NuxtAuthHandler({
@@ -15,7 +15,7 @@ export default NuxtAuthHandler({
     GithubProvider.default({
       // https://github.com/settings/developers
       clientId: envConfig.AUTH_GITHUB_CLIENT_ID,
-      clientSecret: envConfig.AUTH_GITHUB_CLIENT_SECRET,
+      clientSecret: envConfig.AUTH_GITHUB_CLIENT_SECRET
     }),
 
     // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
@@ -23,7 +23,7 @@ export default NuxtAuthHandler({
       // https://manage.auth0.com/dashboard
       clientId: envConfig.AUTH_AUTH0_CLIENT_ID,
       clientSecret: envConfig.AUTH_AUTH0_CLIENT_SECRET,
-      issuer: envConfig.AUTH_AUTH0_ISSUER,
-    }),
-  ],
+      issuer: envConfig.AUTH_AUTH0_ISSUER
+    })
+  ]
 });

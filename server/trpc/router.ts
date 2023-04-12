@@ -4,7 +4,7 @@ import { helloWorldRouter } from "./routers/helloWorld";
 
 export const appRouter = router({
   user: userRouter,
-  helloWorld: helloWorldRouter,
+  helloWorld: helloWorldRouter
 });
 
 // export type definition of API

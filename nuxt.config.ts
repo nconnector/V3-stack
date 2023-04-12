@@ -4,16 +4,14 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // server-side
     NUXT_AUTH_ORIGIN: envConfig.AUTH_ORIGIN,
-    // apiSecret: "", // can be overridden by NUXT_API_SECRET environment variable
     public: {
       // client-side
-      // apiBase: import.meta.env.API_URL as string | undefined, // can be overridden by NUXT_PUBLIC_API_BASE environment variable
-    },
+    }
   },
   build: {
-    transpile: ["trpc-nuxt"],
+    transpile: ["trpc-nuxt"]
   },
-  modules: ["@sidebase/nuxt-auth", "@nuxtjs/eslint-module"],
+  modules: ["@sidebase/nuxt-auth", "@nuxtjs/eslint-module", "@pinia/nuxt"],
   auth: {
     origin: envConfig.AUTH_ORIGIN, // The origin is set to the development origin. Change this when deploying to production by setting `origin` in this config before build-time or by exporting `AUTH_ORIGIN` by running `export AUTH_ORIGIN=...`
     enableSessionRefreshPeriodically: false, // Whether to periodically refresh the session. Change this to `true` for a refresh every seconds or set this to a number like `5000` for a refresh every 5000 milliseconds (aka: 5 seconds)
@@ -24,12 +22,12 @@ export default defineNuxtConfig({
     globalMiddlewareOptions: {
       // Configuration of the global auth-middleware (only applies if you set `enableGlobalAppMiddleware: true` above!)
       allow404WithoutAuth: true, // Whether to allow access to 404 pages without authentication. Set this to `false` to force users to sign-in before seeing `404` pages. Setting this to false may lead to vue-router problems (as the target page does not exist)
-      addDefaultCallbackUrl: true, // Whether to automatically set the callback url to the page the user tried to visit when the middleware stopped them. This is useful to disable this when using the credentials provider, as it does not allow a `callbackUrl`. Setting this to a string-value will result in that being used as the callbackUrl path. Note: You also need to set the global `addDefaultCallbackUrl` setting to `false` if you want to fully disable this for the global middleware.
-    },
+      addDefaultCallbackUrl: true // Whether to automatically set the callback url to the page the user tried to visit when the middleware stopped them. This is useful to disable this when using the credentials provider, as it does not allow a `callbackUrl`. Setting this to a string-value will result in that being used as the callbackUrl path. Note: You also need to set the global `addDefaultCallbackUrl` setting to `false` if you want to fully disable this for the global middleware.
+    }
   },
   typescript: {
-    strict: true,
+    strict: true
     // shim: false,
     // typeCheck: "build",
-  },
+  }
 });

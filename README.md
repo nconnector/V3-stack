@@ -29,8 +29,9 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 
 - `npx nuxi init v3-project-name`
 - `npm i`
-- `npm i @trpc/server @trpc/client trpc-nuxt zod @next-auth/prisma-adapter`
-- `npm i -D @sidebase/nuxt-auth @types/node prisma eslint @nuxtjs/eslint-module`
+- `npm i @trpc/server @trpc/client trpc-nuxt zod @next-auth/prisma-adapter @pinia/nuxt`
+- `npm i -D pinia --legacy-peer-deps`
+- `npm i -D @sidebase/nuxt-auth @types/node prisma eslint @nuxtjs/eslint-config-typescript`
 - continue setup using "from this template" section
 
 ## File structure

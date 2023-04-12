@@ -2,18 +2,18 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
+    node: true
   },
   extends: [
-    "eslint:recommended",
-    "plugin:vue/vue3-essential",
-    "plugin:@typescript-eslint/recommended",
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:@typescript-eslint/recommended"
   ],
   overrides: [],
-  parser: "@typescript-eslint/parser",
+  parser: "vue-eslint-parser",
   parserOptions: {
+    parser: "@typescript-eslint/parser",
     ecmaVersion: "latest",
-    sourceType: "module",
+    sourceType: "module"
   },
   plugins: ["vue", "@typescript-eslint"],
   rules: {
@@ -21,5 +21,7 @@ module.exports = {
     "linebreak-style": 0,
     quotes: ["error", "double"],
     semi: ["error", "always"],
-  },
+    "vue/no-multiple-template-root": 0,
+    "no-console": ["error", { allow: ["warn", "error"] }]
+  }
 };
