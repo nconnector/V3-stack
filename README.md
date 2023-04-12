@@ -9,12 +9,29 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 
 - [x] Vue3 / Nuxt 3
 - [x] Typescript
-- [ ] ts-eslint
+- [x] eslint # https://nuxt.com/modules/eslint#nuxtjseslint-module
 - [x] Prisma ORM # https://www.prisma.io/ (Next-auth schema)
 - [ ] Pinia state management
 - [x] tRPC API # https://trpc.io/
 - [x] Nuxt Auth # https://sidebase.io/nuxt-auth/ (GitHub and Auth0 enabled)
 - [x] Vite
+
+## Setup
+
+### From this template:
+
+- `npm i`
+- [populate .env](envConfig.ts)
+- [prisma setup](prisma/Prisma.md)
+- `eslint --init`
+
+### From scratch:
+
+- `npx nuxi init v3-project-name`
+- `npm i`
+- `npm i @trpc/server @trpc/client trpc-nuxt zod @next-auth/prisma-adapter`
+- `npm i -D @sidebase/nuxt-auth @types/node prisma eslint @nuxtjs/eslint-module`
+- continue setup using "from this template" section
 
 ## File structure
 
@@ -48,24 +65,6 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 
 - TRPC implemented via nuxt-trpc
 - Nuxt builds /server and /client https://nuxt.com/docs/getting-started/deployment
-
-## Setup
-
-### From this template:
-
-```
-npm i
-```
-
-### From scratch:
-
-```
-npx nuxi init v3-project-name
-npm i
-npm i @trpc/server @trpc/client trpc-nuxt zod @next-auth/prisma-adapter
-npm i -D @sidebase/nuxt-auth @types/node prisma
-
-```
 
 ## Development Server
 
