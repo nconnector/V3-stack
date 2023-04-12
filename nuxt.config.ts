@@ -25,6 +25,9 @@ export default defineNuxtConfig({
       addDefaultCallbackUrl: true // Whether to automatically set the callback url to the page the user tried to visit when the middleware stopped them. This is useful to disable this when using the credentials provider, as it does not allow a `callbackUrl`. Setting this to a string-value will result in that being used as the callbackUrl path. Note: You also need to set the global `addDefaultCallbackUrl` setting to `false` if you want to fully disable this for the global middleware.
     }
   },
+  eslint: {
+    lintOnStart: false
+  },
   typescript: {
     strict: true
     // shim: false,
