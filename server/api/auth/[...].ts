@@ -2,28 +2,28 @@ import { envConfig } from "~/envConfig";
 import { NuxtAuthHandler } from "#auth";
 
 import CredentialsProvider from "next-auth/providers/credentials";
-// import GithubProvider from "next-auth/providers/github";
-// import Auth0Provider from "next-auth/providers/auth0";
+import GithubProvider from "next-auth/providers/github";
+import Auth0Provider from "next-auth/providers/auth0";
 
 // import { PrismaAdapter } from "@next-auth/prisma-adapter";
 // import { prisma } from "~~/server/prisma";
 
 export default NuxtAuthHandler({
   // adapter: PrismaAdapter(prisma),
-  secret: envConfig.NUXT_AUTH_SECRET, // secret needed to run nuxt-auth in production mode (used to encrypt data)
+  secret: envConfig.AUTH_NUXT_SECRET, // secret needed to run nuxt-auth in production mode (used to encrypt data)
   providers: [
-    // // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
-    // GithubProvider.default({
-    //   clientId: "enter-your-client-id-here",
-    //   clientSecret: "enter-your-client-secret-here",
-    // }),
+    // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
+    GithubProvider.default({
+      clientId: envConfig.AUTH_GITHUB_CLIENT_ID,
+      clientSecret: envConfig.AUTH_GITHUB_CLIENT_SECRET,
+    }),
 
-    // // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
-    // Auth0Provider.default({
-    //   clientId: envConfig.NUXT_AUTH0_CLIENT_ID,
-    //   clientSecret: envConfig.NUXT_AUTH0_CLIENT_SECRET,
-    //   issuer: envConfig.NUXT_AUTH0_ISSUER,
-    // }),
+    // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
+    Auth0Provider.default({
+      clientId: envConfig.AUTH_AUTH0_CLIENT_ID,
+      clientSecret: envConfig.AUTH_AUTH0_CLIENT_SECRET,
+      issuer: envConfig.AUTH_AUTH0_ISSUER,
+    }),
 
     // @ts-ignore Import is exported on .default during SSR, so we need to call it this way. May be fixed via Vite at some point
     CredentialsProvider.default({
@@ -50,8 +50,6 @@ export default NuxtAuthHandler({
         // submitted and returns either a object representing a user or value
         // that is false/null if the credentials are invalid.
         // NOTE: THE BELOW LOGIC IS NOT SAFE OR PROPER FOR AUTHENTICATION!
-        // todo: add trpc auth here
-
         const user = {
           id: "1",
           name: "J Smith",

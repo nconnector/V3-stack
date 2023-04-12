@@ -8,11 +8,13 @@ const envSchema = z.object({
   DATABASE_NAME: z.string().nonempty(),
   DATABASE_USER: z.string().nonempty(),
   DATABASE_PASSWORD: z.string().nonempty().min(16),
-  NUXT_AUTH_SECRET: z.string().nonempty().min(16),
+  AUTH_NUXT_SECRET: z.string().nonempty().min(16),
   AUTH_ORIGIN: z.string().url().default("http://localhost:3000"),
-  NUXT_AUTH0_CLIENT_ID: z.string().optional(),
-  NUXT_AUTH0_CLIENT_SECRET: z.string().optional(),
-  NUXT_AUTH0_ISSUER: z.string().url().optional(),
+  AUTH_AUTH0_CLIENT_ID: z.string().optional(),
+  AUTH_AUTH0_CLIENT_SECRET: z.string().optional(),
+  AUTH_AUTH0_ISSUER: z.string().url().optional(),
+  AUTH_GITHUB_CLIENT_ID: z.string().optional(),
+  AUTH_GITHUB_CLIENT_SECRET: z.string().optional(),
 });
 
 const parsedSchema = envSchema.safeParse(process.env);
