@@ -1,6 +1,6 @@
 import type { H3Event } from "h3";
 import { inferAsyncReturnType } from "@trpc/server";
-// import { prisma } from "../prisma";
+import { prisma } from "~/server/prisma";
 
 /**
  * Creates context for an incoming request
@@ -11,7 +11,7 @@ export const createContext = async (_event: H3Event) => {
   // Will be available as `ctx` in all your resolvers
   // This is just an example of something you might want to do in your ctx fn
   return {
-    // prisma,
+    prisma,
     session: _event.context.session,
   };
 };

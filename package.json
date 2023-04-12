@@ -7,14 +7,16 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "db-reset": "npx prisma db push --force-reset && npx prisma db seed"
   },
   "devDependencies": {
     "@sidebase/nuxt-auth": "^0.5.0-rc.0",
     "@types/node": "^18.15.11",
-    "nuxt": "^3.3.3"
+    "nuxt": "^3.3.3",
+    "prisma": "^4.12.0"
   },
   "dependencies": {
+    "@next-auth/prisma-adapter": "^1.0.5",
     "@trpc/client": "^10.19.1",
     "@trpc/server": "^10.19.1",
     "trpc-nuxt": "^0.8.0",

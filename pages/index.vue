@@ -16,6 +16,7 @@
       <button @click="() => incrementAuth()">increment auth-protected</button>
     </div>
   </div>
+  <button @click="() => navigateTo('/authtest')">Test protected page</button>
 </template>
 
 <script setup lang="ts">

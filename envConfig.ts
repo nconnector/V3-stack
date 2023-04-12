@@ -5,9 +5,6 @@ const envSchema = z.object({
     .enum(["development", "staging", "production"])
     .default("development"),
   DATABASE_URL: z.string().url().nonempty(),
-  DATABASE_NAME: z.string().nonempty(),
-  DATABASE_USER: z.string().nonempty(),
-  DATABASE_PASSWORD: z.string().nonempty().min(16),
   AUTH_NUXT_SECRET: z.string().nonempty().min(16),
   AUTH_ORIGIN: z.string().url().default("http://localhost:3000"),
   AUTH_AUTH0_CLIENT_ID: z.string().optional(),

@@ -7,14 +7,14 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 
 ## Features
 
-[x] Vue3 / Nuxt 3
-[x] Typescript
-[ ] ts-eslint
-[ ] Prisma ORM
-[ ] Pinia state management
-[x] tRPC API: https://trpc.io/
-[x] Nuxt Auth: https://sidebase.io/nuxt-auth/
-[x] Vite
+- [x] Vue3 / Nuxt 3
+- [x] Typescript
+- [ ] ts-eslint
+- [x] Prisma ORM # https://www.prisma.io/
+- [ ] Pinia state management
+- [x] tRPC API # https://trpc.io/
+- [x] Nuxt Auth # https://sidebase.io/nuxt-auth/
+- [x] Vite
 
 ## File structure
 
@@ -22,18 +22,24 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 ├── server
 │   ├── api
 │   │   ├── trpc
-│   │   │   └── [trpc].ts  # <-- tRPC HTTP handler
+│   │   │   └── [trpc].ts             <-- tRPC HTTP handler
 │   │   └── auth
-│   │       └── [...].ts  # <-- catch all auth HTTP handler
-│   │── middleware
-│   │       └── 0.auth-session.ts  # <-- first in order, add auth session to ctx
-│   └── trpc
-│       ├── trpc.ts      # <-- procedure helpers
-│       ├── context.ts   # <-- create app context
-│       ├── router.ts  # <-- main app router
-│       └── routers  # <-- sub-routers
-│           ├── auth.ts
-│           └── [..]
+│   │       └── [...].ts              <-- catch all auth HTTP handler
+│   ├── middleware
+│   │       └── 0.auth-session.ts     <-- first in order, add auth session to ctx
+│   ├── trpc
+│   │   ├── trpc.ts                   <-- procedure helpers
+│   │   ├── context.ts                <-- create app context
+│   │   ├── router.ts                 <-- main app router
+│   │   └── routers                   <-- sub-routers
+│   │       ├── user.ts
+│   │       └── [..]
+│   └── prisma.ts                     <-- prisma client
+├── prisma
+│   ├── migrations
+│   │       └── [..]
+│   ├── schema.prisma
+│   └── seed.ts
 ├── plugins
 │   └── client.ts  # <-- tRPC client plugin
 ```
@@ -41,18 +47,23 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 ## Deployment:
 
 - TRPC implemented via nuxt-trpc
-- Nuxt builds /server and /cliend https://nuxt.com/docs/getting-started/deployment
-
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+- Nuxt builds /server and /client https://nuxt.com/docs/getting-started/deployment
 
 ## Setup
 
+### From this template:
+
 ```
-npx nuxi init project-name
 npm i
-npm i @trpc/server @trpc/client trpc-nuxt zod
+```
+
+### From scratch:
+
+```
+npx nuxi init v3-project-name
+npm i
+npm i @trpc/server @trpc/client trpc-nuxt zod @next-auth/prisma-adapter
+npm i -D @sidebase/nuxt-auth @types/node prisma
 
 ```
 
