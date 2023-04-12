@@ -11,7 +11,7 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 - [x] Typescript
 - [x] eslint # https://nuxt.com/modules/eslint#nuxtjseslint-module
 - [x] Prisma ORM # https://www.prisma.io/ (Next-auth schema)
-- [ ] Pinia state management
+- [x] Pinia state management
 - [x] tRPC API # https://trpc.io/
 - [x] Nuxt Auth # https://sidebase.io/nuxt-auth/ (GitHub and Auth0 enabled)
 - [x] Vite
@@ -59,7 +59,9 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 │   ├── schema.prisma
 │   └── seed.ts
 ├── plugins
-│   └── client.ts  # <-- tRPC client plugin
+│   └── client.ts                     <-- tRPC client plugin
+├── store
+│   └── index.ts                      <-- main pinia store
 ```
 
 ## Deployment:
