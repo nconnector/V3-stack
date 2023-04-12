@@ -5,6 +5,17 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 - Fast HMR (Vite)
 - Typesafe API (TypeScript & tRPC)
 
+## Features
+
+[x] Vue3 / Nuxt 3
+[x] Typescript
+[ ] ts-eslint
+[ ] Prisma ORM
+[ ] Pinia state management
+[x] tRPC API: https://trpc.io/
+[x] Nuxt Auth: https://sidebase.io/nuxt-auth/
+[x] Vite
+
 ## File structure
 
 ```.
@@ -27,22 +38,6 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 │   └── client.ts  # <-- tRPC client plugin
 ```
 
-## Client TODO:
-
-- [x] Nuxt3, vite
-- [ ] pinia
-- [x] TRPC // trpc-nuxt wrapper
-- [x] env
-
-## Server TODO:
-
-- [ ] prisma
-- [x] TRPC // trpc-nuxt wrapper
-- [ ] ts-eslint
-- [x] next auth // nuxt-auth wrapper
-- [ ] auth0
-- [ ] env.example
-
 ## Deployment:
 
 - TRPC implemented via nuxt-trpc
@@ -58,7 +53,7 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 npx nuxi init project-name
 npm i
 npm i @trpc/server @trpc/client trpc-nuxt zod
-npm i -D @sidebase/nuxt-auth @types/node
+
 ```
 
 ## Development Server
