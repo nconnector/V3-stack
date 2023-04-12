@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["trpc-nuxt"],
   },
-  modules: ["@sidebase/nuxt-auth"],
+  modules: ["@sidebase/nuxt-auth", "@nuxtjs/eslint-module"],
   auth: {
     origin: envConfig.AUTH_ORIGIN, // The origin is set to the development origin. Change this when deploying to production by setting `origin` in this config before build-time or by exporting `AUTH_ORIGIN` by running `export AUTH_ORIGIN=...`
     enableSessionRefreshPeriodically: false, // Whether to periodically refresh the session. Change this to `true` for a refresh every seconds or set this to a number like `5000` for a refresh every 5000 milliseconds (aka: 5 seconds)
