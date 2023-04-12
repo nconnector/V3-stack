@@ -26,7 +26,7 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 │   │   └── auth
 │   │       └── [...].ts              <-- catch all auth HTTP handler
 │   ├── middleware
-│   │       └── 0.auth-session.ts     <-- first in order, add auth session to ctx
+│   │       └── 0.auth-session.ts     <-- first in order, add auth session to event ctx
 │   ├── trpc
 │   │   ├── trpc.ts                   <-- procedure helpers
 │   │   ├── context.ts                <-- create app context
