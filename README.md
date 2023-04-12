@@ -10,10 +10,10 @@ Use this project to kick off your End-to-End typesafe project with TRPC and Nuxt
 - [x] Vue3 / Nuxt 3
 - [x] Typescript
 - [ ] ts-eslint
-- [x] Prisma ORM # https://www.prisma.io/
+- [x] Prisma ORM # https://www.prisma.io/ (Next-auth schema)
 - [ ] Pinia state management
 - [x] tRPC API # https://trpc.io/
-- [x] Nuxt Auth # https://sidebase.io/nuxt-auth/
+- [x] Nuxt Auth # https://sidebase.io/nuxt-auth/ (GitHub and Auth0 enabled)
 - [x] Vite
 
 ## File structure
