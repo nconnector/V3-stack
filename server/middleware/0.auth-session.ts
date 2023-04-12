@@ -9,5 +9,5 @@ declare module "h3" {
 
 export default eventHandler(async (event) => {
   const session = await getServerSession(event);
-  event.context.session = session!;
+  event.context.session = session as Session; // non-null assertion
 });

@@ -5,25 +5,25 @@ export const helloWorldRouter = router({
   hello: publicProcedure
     .input(
       z.object({
-        text: z.string().nullish(),
+        text: z.string().nullish()
       })
     )
     .query(({ input }) => {
       return {
-        greeting: `hello ${input?.text ?? "world"}`,
+        greeting: `hello ${input?.text ?? "world"}`
       };
     }),
   helloAuthenticated: protectedProcedure
     .input(
       z.object({
-        text: z.string().nullish(),
+        text: z.string().nullish()
       })
     )
     .query(({ input }) => {
       return {
         greeting: `hello ${
           input?.text ?? "world"
-        } (server authenticated this request)`,
+        } (server authenticated this request)`
       };
-    }),
+    })
 });

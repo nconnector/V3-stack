@@ -18,5 +18,7 @@
     "titleBar.inactiveBackground": "#8a340899",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#8a3408"
+  "peacock.color": "#8a3408",
+  "eslint.format.enable": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint"
 }
